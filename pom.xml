@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.1.6</version>
+    </parent>
+
+    <packaging>pom</packaging>
+
+    <groupId>com.limn</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0</version>
+
+    <name>cloud-frame</name>
+    <description>基于SpringBott3.0的轻量级系统开发框架</description>
+
+
+    <modules>
+        <module>cloud-frame</module>
+        <module>basis-frame</module>
+        <module>dao-frame</module>
+        <module>job-frame</module>
+        <module>log-frame</module>
+        <module>redis-frame</module>
+        <module>common-frame</module>
+    </modules>
+
+    <properties>
+        <java.version>17</java.version>
+
+<!--        自有系统框架-->
+        <cloud-frame.verison>1.0</cloud-frame.verison>
+        <basis-frame.version>1.0</basis-frame.version>
+        <dao-frame.version>1.0</dao-frame.version>
+        <job-frame.version>1.0</job-frame.version>
+        <log-frame.version>1.0</log-frame.version>
+        <redis-frame.version>1.0</redis-frame.version>
+        <common-frame.version>1.0</common-frame.version>
+
+
+        <hutool-all.version>5.8.22</hutool-all.version>
+        <lombok.version>1.18.28</lombok.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+<!--            自有框架限制-->
+            <dependency>
+                <groupId>com.limn</groupId>
+                <artifactId>basis-frame</artifactId>
+                <version>${basis-frame.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.limn</groupId>
+                <artifactId>cloud-frame</artifactId>
+                <version>${cloud-frame.verison}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.limn</groupId>
+                <artifactId>common-frame</artifactId>
+                <version>${common-frame.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.limn</groupId>
+                <artifactId>dao-frame</artifactId>
+                <version>${dao-frame.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.limn</groupId>
+                <artifactId>job-frame</artifactId>
+                <version>${job-frame.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.limn</groupId>
+                <artifactId>log-frame</artifactId>
+                <version>${log-frame.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.limn</groupId>
+                <artifactId>redis-frame</artifactId>
+                <version>${log-frame.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool-all.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+</project>

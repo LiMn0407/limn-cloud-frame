@@ -1,0 +1,41 @@
+<configuration>
+
+<!--    绑定运行服务的active-->
+    <springProperty name="logLevel" source="spring.profiles.active" defaultValue="INFO" />
+
+<!--    定义businessLogger-->
+    <logger name="business" level="${logLevel}" />
+
+    <property name="logLevel" value="INFO" />
+
+    <!-- 控制台输出 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- 控制台输出格式 -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} %X{traceId} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 滚动的文件输出 -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- 按时间滚动日志文件，每天生成一个新文件，文件名为：年月日.%i.log -->
+            <fileNamePattern>${user.dir}/logs/%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- 每个日志文件的最大大小 -->
+            <maxFileSize>10MB</maxFileSize>
+            <!-- 最多保留30天的历史日志文件 -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <!-- 日志输出格式 -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} %X{traceId} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 日志输出的级别 -->
+    <root level="${logLevel}">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE" />
+    </root>
+
+</configuration>
