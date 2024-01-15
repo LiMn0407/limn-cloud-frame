@@ -12,4 +12,11 @@
     <name>common-frame</name>
     <description>common-frame</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>
