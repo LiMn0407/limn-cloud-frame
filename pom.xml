@@ -41,10 +41,16 @@
         <redis-frame.version>1.0</redis-frame.version>
         <common-frame.version>1.0</common-frame.version>
 
+<!--        start起步依赖-->
+        <mybatis-plus-boot-starter.version>3.5.3.1</mybatis-plus-boot-starter.version>
+        <mybatis-plus-generator.version>3.5.3.1</mybatis-plus-generator.version>
 
         <hutool-all.version>5.8.22</hutool-all.version>
         <lombok.version>1.18.28</lombok.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
+        <snakeyaml.version>2.0</snakeyaml.version>
+        <logback.version>1.4.14</logback.version>
+        <druid.version>1.2.18</druid.version>
     </properties>
 
     <dependencyManagement>
@@ -109,6 +115,46 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool-all.version}</version>
+            </dependency>
+
+<!--            修复snakeyaml漏洞 -->
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>${snakeyaml.version}</version>
+            </dependency>
+
+<!--            修复LogBack 1.14.11 漏洞 -->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+
+            <!--            mp代码生成器-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus-generator.version}</version>
+            </dependency>
+
+            <!--        mybatis-plus-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
             </dependency>
 
         </dependencies>
